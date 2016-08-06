@@ -1,20 +1,20 @@
 <div ng-app="app">
   <div class="row member-search">
     <div class="col-md-3">
-      <label for="">Search by Name</label>
-      <input type="text" class="form-control" placeholder="Name">
+      <label>Search by Name</label>
+      <input ng-model="nameFilter" type="text" class="form-control" placeholder="Name">
     </div>
     <div class="col-md-3">
       <label for="">Search by City</label>
-      <input type="text" class="form-control" placeholder="City">
+      <input ng-model="cityFilter" type="text" class="form-control" placeholder="City">
     </div>
     <div class="col-md-3">
       <label for="">Search by Membership</label>
-      <input type="text" class="form-control" placeholder="Membership">
+      <input ng-model="membershipFilter" type="text" class="form-control" placeholder="Membership">
     </div>
     <div class="col-md-3">
       <label for="">Search by Email</label>
-      <input type="text" class="form-control" placeholder="Email">
+      <input ng-model="emailFilter" type="text" class="form-control" placeholder="Email">
     </div>
   </div>
   <div ng-controller="membersCtrl" ng-init="setup()">
@@ -27,7 +27,8 @@
         <th> Phone </th>
         <th> Membership </th>
       </tr>
-      <tr ng-repeat="member in members">
+      <tr ng-repeat="member in members | filter: nameFilter | filter: cityFilter
+      | filter: membershipFilter | filter: emailFilter" >
         <td> {{ member.first_name }} </td>
         <td> {{ member.street_address }} </td>
         <td> {{ member.city }} </td>
