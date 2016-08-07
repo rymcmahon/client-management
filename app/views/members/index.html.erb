@@ -1,25 +1,18 @@
 <div ng-app="app">
   <div class="row member-search">
-    <div class="col-md-3">
-      <label>Search by Name</label>
+    <div class="col-md-6">
+      <label>Search by First or Last Name</label>
       <input ng-model="nameFilter" type="text" class="form-control" placeholder="Name">
     </div>
-    <div class="col-md-3">
-      <label for="">Search by City</label>
-      <input ng-model="cityFilter" type="text" class="form-control" placeholder="City">
-    </div>
-    <div class="col-md-3">
-      <label for="">Search by Membership</label>
-      <input ng-model="membershipFilter" type="text" class="form-control" placeholder="Membership">
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
       <label for="">Search by Email</label>
       <input ng-model="emailFilter" type="text" class="form-control" placeholder="Email">
     </div>
   </div>
   <div ng-controller="membersCtrl" ng-init="setup()">
-    <table class="table table-bordered table-striped member-table">
-      <tr>
+    <table class="table table-bordered table-hover member-table">
+      <tr class="success
+      ">
         <th> Name </th>
         <th> Address </th>
         <th> City </th>
@@ -29,7 +22,7 @@
       </tr>
       <tr ng-repeat="member in members | filter: nameFilter | filter: cityFilter
       | filter: membershipFilter | filter: emailFilter" >
-        <td> {{ member.first_name }} </td>
+        <td> {{ member.first_name }} {{ member.last_name }}</td>
         <td> {{ member.street_address }} </td>
         <td> {{ member.city }} </td>
         <td> {{ member.email }} </td>
@@ -37,5 +30,56 @@
         <td> {{ member.membership }} </td>
       </tr>
     </table>
+    <div class="new-client">
+      <h2>Add New Client</h2>
+      <div class="row new-client-input">
+        <div class="col-md-4">
+          <label>First Name</label>
+          <input ng-model="newMemberFirstName" type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label>Last Name</label>
+          <input ng-model="newMemberLastName" type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label>Street Address</label>
+          <input ng-model="newMemberStreetAddress" type="text" class="form-control" placeholder="123 Main St.">
+        </div>
+      </div>
+      <div class="row new-client-input">
+        <div class="col-md-4">
+          <label>City</label>
+          <input ng-model="newMemberCity" type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label>State</label>
+          <input ng-model="newMemberState" type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label>Zip</label>
+          <input ng-model="newMemberZip" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row new-client-input">
+        <div class="col-md-4">
+          <label>Email</label>
+          <input ng-model="newMemberEmail" type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label>Phone</label>
+          <input ng-model="newMemberPhone" type="text" class="form-control" placeholder="XXX-XXX-XXXX">
+        </div>
+        <div class="col-md-4">
+          <label>Select Membership</label>
+          <select ng-model="newMemberMembership" ng-options="membership for membership in memberships" class="form-control"></select>
+        </div>
+      </div>
+      <div class="row new-client-input">
+        <div class="col-md-3">
+          <button ng-click="addNewMember(newMemberFirstName, newMemberLastName, newMemberStreetAddress,
+          newMemberCity, newMemberState, newMemberZip, newMemberEmail, newMemberPhone, newMemberMembership)" class="btn btn-default">Create Client</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         get '/members' => 'members#index'
+        post '/members' => 'members#create'
       end
     end
+
 end
