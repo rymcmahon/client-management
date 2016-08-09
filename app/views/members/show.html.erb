@@ -1,0 +1,24 @@
+
+<div ng-app="app">
+<div ng-controller="membersCtrl" ng-init="setupMemberShow(<%= @member.id %>)">
+<div class="panel panel-default">
+  <div class="panel-heading">{{ member.first_name }} {{ member.last_name }}</p></div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3">
+        <p><strong>Address:</strong> {{ member.street_address }} {{ member.city }}, {{ member.state}}</p>
+      </div>
+      <div class="col-md-3">
+        <p><strong>Email:</strong> {{ member.email }}</p>
+      </div>
+      <div class="col-md-3">
+        <p><strong>Phone:</strong> {{ member.phone }}</p>
+      </div>
+      <div class="col-md-3">
+        <p><strong>Membership:</strong> {{ member.membership }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

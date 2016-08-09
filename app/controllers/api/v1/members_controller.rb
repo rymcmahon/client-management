@@ -25,4 +25,8 @@ class Api::V1::MembersController < ApplicationController
     end
   end
 
+  def show
+    @member = Member.find(params[:id])
+  end
+
 end

@@ -9,6 +9,14 @@
       });
     };
 
+    $scope.setupMemberShow = function(memberId) {
+       $http.get('/api/v1/members/' + memberId + '.json').then(function(response) {
+         console.log(response.data)
+         $scope.member = response.data;
+         $scope.memberId = memberId;
+       });
+     };
+
     $scope.memberships = ["6-month", "12-month", "24-month"];
 
     $scope.addNewMember = function(inputFirstName, inputLastName, inputStreetAddress, inputCity, inputState, inputZip, inputEmail, inputPhone, inputMembership) {
