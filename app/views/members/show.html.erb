@@ -1,20 +1,17 @@
 
 <div ng-app="app">
 <div ng-controller="membersCtrl" ng-init="setupMemberShow(<%= @member.id %>)">
-<div class="panel panel-default">
-  <div class="panel-heading">{{ member.first_name }} {{ member.last_name }}</p></div>
+<div class="panel panel-default member-panel">
+  <div class="panel-heading member-name-panel">{{ member.first_name }} {{ member.last_name }}</strong></div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-3">
-        <p><strong>Address:</strong> {{ member.street_address }} {{ member.city }}, {{ member.state}}</p>
+      <div class="col-xs-12 col-sm-6 col-md-4 phone-column">
+        <i class="fa fa-user" aria-hidden="true"></i>
       </div>
-      <div class="col-md-3">
+      <div class="col-xs-12 col-sm-6 col-md-8 phone-column">
+        <p><strong>Address:</strong> {{ member.street_address }} {{ member.city }}, {{ member.state}} {{ member.zip }}</p>
         <p><strong>Email:</strong> {{ member.email }}</p>
-      </div>
-      <div class="col-md-3">
         <p><strong>Phone:</strong> {{ member.phone }}</p>
-      </div>
-      <div class="col-md-3">
         <p><strong>Membership:</strong> {{ member.membership }}</p>
       </div>
     </div>
