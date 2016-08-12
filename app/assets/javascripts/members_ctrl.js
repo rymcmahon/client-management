@@ -19,6 +19,13 @@
 
     $scope.memberships = ["6-month", "12-month", "24-month"];
 
+    $scope.submitForm = function() {
+    $scope.submitted = true;
+    if (memberForm.$valid) {
+        alert('Form submitted - fields passed validation');
+    }
+  };
+
     $scope.addNewMember = function(inputFirstName, inputLastName, inputStreetAddress, inputCity, inputState, inputZip, inputEmail, inputPhone, inputMembership) {
         var newMember = {
           first_name: inputFirstName,
@@ -43,11 +50,8 @@
           $scope.newMemberEmail = null;
           $scope.newMemberPhone = null;
           $scope.newMemberMembership = null;
-        }, function(errorResponse) {
-          console.log(errorResponse);
-          $scope.errors = errorResponse.data.errors;
         });
-        $scope.errors = null;
+
       };
 
    window.$scope = $scope;
