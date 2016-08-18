@@ -51,7 +51,7 @@
           $scope.newMemberPhone = null;
           $scope.newMemberMembership = null;
         });
-
+        $scope.memberForm.$setPristine()
       };
 
    window.$scope = $scope;

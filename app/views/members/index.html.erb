@@ -40,69 +40,78 @@
         <div class="row new-client-input">
           <div class="col-md-4">
             <label>First Name</label>
-            <input ng-keypress="submitForm.$submitted=false" ng-model="newMemberFirstName" type="text" class="form-control" name="memberFistName" required />
-            <ng-messages ng-if="memberForm.$submitted" for="memberForm.memberFistName.$error" class="member-form-error" role="alert">
-              <ng-message when="required">First name required</ng-message>
-            </ng-messages>
+            <input name="memberFistName" ng-model="newMemberFirstName" type="text" class="form-control" required>
+            <div ng-if="submitted || memberForm.memberLastName.$dirty" for="memberForm.memberFistName.$error" class="member-form-error" role="alert">
+              <span ng-show="memberForm.memberFistName.$error.required" class="error-show">First Name Required</span>
+              <span ng-show="!memberForm.memberFistName.$error.required"> </span>
+            </div>
           </div>
           <div class="col-md-4">
             <label>Last Name</label>
-            <input ng-model="newMemberLastName" type="text" class="form-control" name="memberLastName" required />
+            <input name="memberLastName" ng-model="newMemberLastName" type="text" class="form-control" required>
             <div ng-if="submitted || memberForm.memberLastName.$dirty" ng-messages="memberForm.memberLastName.$error" class="member-form-error" role="alert">
-              <div ng-message="required">Last name required</div>
+              <span ng-show="memberForm.memberLastName.$error.required">Last Name Required</span>
+              <span ng-show="!memberForm.memberLastName.$error.required"> </span>
             </div>
           </div>
           <div class="col-md-4">
             <label>Street Address</label>
-            <input ng-model="newMemberStreetAddress" type="text" class="form-control" placeholder="123 Main St." name="memberAddress" required />
+            <input name="memberStreetAddress" ng-model="newMemberStreetAddress" type="text" class="form-control" placeholder="123 Main St." required>
             <div ng-if="submitted || memberForm.memberAddress.$dirty" ng-messages="memberForm.memberAddress.$error" class="member-form-error" role="alert">
-              <div ng-message="required">Street address required</div>
+              <span ng-show="memberForm.memberStreetAddress.$error.required">Street Address Required</span>
+              <span ng-show="!memberForm.memberStreetAddress.$error.required"> </span>
             </div>
           </div>
         </div>
         <div class="row new-client-input">
           <div class="col-md-4">
             <label>City</label>
-            <input ng-model="newMemberCity" type="text" class="form-control" name="memberCity" required />
+            <input name="memberCity" ng-model="newMemberCity" type="text" class="form-control" required>
             <div ng-if="submitted || memberForm.memberCity.$dirty" ng-messages="memberForm.memberCity.$error" class="member-form-error" role="alert">
-              <div ng-message="required">City required</div>
+              <span ng-show="memberForm.memberCity.$error.required">City Required</span>
+              <span ng-show="!memberForm.memberCity.$error.required"> </span>
             </div>
           </div>
           <div class="col-md-4">
             <label>State</label>
-            <input ng-model="newMemberState" type="text" class="form-control" name="memberState" required />
+            <input name="memberState" ng-model="newMemberState" type="text" class="form-control" required>
             <div ng-if="submitted || memberForm.memberState.$dirty" ng-messages="memberForm.memberState.$error" class="member-form-error" role="alert">
-              <div ng-message="required">State required</div>
+              <span ng-show="memberForm.memberState.$error.required">State Required</span>
+              <span ng-show="!memberForm.memberState.$error.required"> </span>
             </div>
           </div>
           <div class="col-md-4">
             <label>Zip</label>
-            <input ng-model="newMemberZip" type="text" class="form-control" name="memberZip" required />
+            <input name="memberZip" ng-model="newMemberZip" type="text" class="form-control" required>
             <div ng-if="submitted || memberForm.memberZip.$dirty" ng-messages="memberForm.memberZip.$error" class="member-form-error" role="alert">
-              <div ng-message="required">Zip code required</div>
+              <span ng-show="memberForm.memberZip.$error.required">Zip Code Required</span>
+              <span ng-show="!memberForm.memberZip.$error.required"> </span>
             </div>
           </div>
         </div>
         <div class="row new-client-input">
           <div class="col-md-4">
             <label>Email</label>
-            <input ng-model="newMemberEmail" type="text" class="form-control" name="memberEmail" required />
+            <input name="memberEmail" ng-model="newMemberEmail" type="text" class="form-control" required>
             <div ng-if="submitted || memberForm.memberEmail.$dirty" ng-messages="memberForm.memberEmail.$error" class="member-form-error" role="alert">
-              <div ng-message="required">Email required</div>
+              <span ng-show="memberForm.memberEmail.$error.required">Email Required</span>
+              <span ng-show="!memberForm.memberEmail.$error.required"> </span>
             </div>
           </div>
           <div class="col-md-4">
             <label>Phone</label>
-            <input ng-model="newMemberPhone" type="text" class="form-control" placeholder="XXX-XXX-XXXX" name="memberPhone" required />
+            <input name="memberPhone" ng-model="newMemberPhone" type="text" class="form-control" placeholder="XXX-XXX-XXXX" required >
             <div ng-if="submitted || memberForm.memberPhone.$dirty" ng-messages="memberForm.memberPhone.$error" class="member-form-error" role="alert">
-              <div ng-message="required">Phone number required</div>
+              <span ng-show="memberForm.memberPhone.$error.required">Phone Required</span>
+              <span ng-show="!memberForm.memberPhone.$error.required"> </span>
             </div>
           </div>
           <div class="col-md-4">
             <label>Select Membership</label>
-            <select ng-model="newMemberMembership" ng-options="membership for membership in memberships" class="form-control"></select>
+            <select name="memberMembership" ng-model="newMemberMembership" ng-options="membership for membership in memberships" class="form-control" required></select>
             <div ng-if="submitted || memberForm.memberMembership.$dirty" ng-messages="memberForm.memberMembership.$error" class="member-form-error" role="alert">
-              <div ng-message="required">Membership required</div>
+              <span ng-show="memberForm.memberMembership.$error.required">Membership Required</span>
+              <span ng-show="!memberForm.memberMembership.$error.required"> </span>
             </div>
           </div>
         </div>
