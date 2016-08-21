@@ -40,10 +40,10 @@
         <div class="row new-client-input">
           <div class="col-md-4">
             <label>First Name</label>
-            <input name="memberFistName" ng-model="newMemberFirstName" type="text" class="form-control" required>
-            <div ng-if="submitted || memberForm.memberLastName.$dirty" for="memberForm.memberFistName.$error" class="member-form-error" role="alert">
-              <span ng-show="memberForm.memberFistName.$error.required" class="error-show">First Name Required</span>
-              <span ng-show="!memberForm.memberFistName.$error.required"> </span>
+            <input name="memberFirstName" ng-model="newMemberFirstName" type="text" class="form-control" required>
+            <div ng-if="submitted || memberForm.memberFirstName.$dirty" for="memberForm.memberFirstName.$error" class="member-form-error" role="alert">
+              <span ng-show="memberForm.memberFirstName.$error.required" class="error-show">First Name Required</span>
+              <span ng-show="!memberForm.memberFirstName.$error.required"> </span>
             </div>
           </div>
           <div class="col-md-4">
